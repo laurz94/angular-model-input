@@ -1,5 +1,5 @@
 {
-  "name": "dev",
+  "name": "angular-model-input",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
@@ -10,7 +10,7 @@
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/dev",
+        "outputPath": "dist/angular-model-input",
         "index": "./src/index.html",
         "main": "./src/main.ts",
         "polyfills": ["zone.js"],
@@ -56,10 +56,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "dev:build:production"
+          "buildTarget": "angular-model-input:build:production"
         },
         "development": {
-          "buildTarget": "dev:build:development"
+          "buildTarget": "angular-model-input:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -67,7 +67,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "dev:build"
+        "buildTarget": "angular-model-input:build"
       }
     },
     "lint": {
@@ -80,7 +80,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.ts"
+        "jestConfig": "jest.config.app.ts"
       }
     }
   }

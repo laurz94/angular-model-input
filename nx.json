@@ -42,6 +42,11 @@
           "codeCoverage": true
         }
       }
+    },
+    "@nx/angular:package": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "generators": {
@@ -50,8 +55,15 @@
       "linter": "eslint",
       "style": "scss",
       "unitTestRunner": "jest"
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "scss"
     }
   },
-  "defaultProject": "dev",
+  "defaultProject": "angular-model-input",
   "nxCloudAccessToken": "YWYxOWY1MzktNmNkOS00OWJjLWE5MGMtYTI5YWFiYWI3ZWIwfHJlYWQtd3JpdGU="
 }

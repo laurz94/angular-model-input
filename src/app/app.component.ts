@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule],
   selector: 'app-root',
-  templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  template: `<h1>Welcome to Angular Model Input Demo App </h1>
+  <router-outlet></router-outlet>`,
 })
 export class AppComponent {
-  title = 'dev';
+  title = 'Angular Model Input';
 }

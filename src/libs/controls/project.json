@@ -1,0 +1,36 @@
+{
+  "name": "controls",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "controls/src",
+  "prefix": "my-lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "controls/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "controls/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "controls/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "controls/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
