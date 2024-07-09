@@ -1,8 +1,10 @@
-import { createReducer, on } from '@ngrx/store';
-import { initialFormState } from './form-state';
-import { FormActions } from './form-actions';
 import { setStatePropertyErrored, setStatePropertyLoaded, setStatePropertyLoading } from '@my/domain';
+import { createReducer, on } from '@ngrx/store';
+
 import { MyForm } from '../models/form';
+
+import { FormActions } from './form-actions';
+import { initialFormState } from './form-state';
 
 export const formReducer = createReducer(
   initialFormState,
@@ -18,4 +20,9 @@ export const formReducer = createReducer(
     ...state,
     formA: setStatePropertyErrored<MyForm>(error),
   })),
+
+  on(FormActions.updateState, (state, { form }) => ({
+    ...state,
+    formA: { ...state.formA, value: { ...form } },
+  }))
 );

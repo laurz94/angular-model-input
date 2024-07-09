@@ -1,19 +1,29 @@
-import { Component, input, model, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, input, model } from '@angular/core';
+import { ControlValueAccessor, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'my-lib-textbox',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  template: `<pre>textbox value {{ value() | json }}</pre>
-    <input type="text" [(ngModel)]="value" (change)="updateValue($event)" />`,
+  template: ` <input type="text" [(ngModel)]="value" (change)="writeValue($event)" />`,
 })
-export class MyTextboxComponent {
+export class MyTextboxComponent implements ControlValueAccessor {
   disabled = input(false);
   value = model('');
 
-  updateValue(event: any) {
+  onChange: (value: string) => void = () => {};
+  onTouched: () => void = () => {};
+
+  writeValue(event: any) {
     this.value.set(event.target.value);
+  }
+
+  registerOnChange(fn: (value: string) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
   }
 }

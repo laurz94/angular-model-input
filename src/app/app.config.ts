@@ -1,19 +1,12 @@
-import {
-  ApplicationConfig,
-  provideZoneChangeDetection,
-  isDevMode,
-} from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
-import {
-  provideState,
-  provideStore,
-} from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { appRoutes } from './app.routes';
-import { formFeatureKey, FormState } from './form/state/form-state';
 import { formReducer } from './form/state/form-reducer';
+import { formFeatureKey, FormState } from './form/state/form-state';
 
 export interface AppState {
   [formFeatureKey]: FormState;

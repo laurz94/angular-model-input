@@ -1,10 +1,8 @@
-import { signal, WritableSignal } from "@angular/core";
-
 export interface MyForm {
-  checkbox: WritableSignal<boolean>;
-  textbox: WritableSignal<string>;
+  checkbox: boolean;
+  textbox: string;
 }
 
 export function getDefaultMyForm(overrides?: Partial<MyForm>) {
-  return Object.assign({checkbox: signal(false), textbox: signal('') }, overrides);
+  return Object.assign({ checkbox: false, textbox: null }, overrides);
 }

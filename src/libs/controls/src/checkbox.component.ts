@@ -1,6 +1,6 @@
-import { Component, input, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, input, model } from '@angular/core';
+import { ControlValueAccessor, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'my-lib-checkbox',
@@ -8,19 +8,29 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   template: `<pre>checkbox value {{ checked() | json }}</pre>
     <div>
-      <input type="checkbox" [id]="name()" [name]="name()" [(ngModel)]="checked" />
+      <input type="checkbox" [id]="name()" [name]="name()" [(ngModel)]="checked" (click)="writeValue()" />
       <label [for]="name()">{{ label() }}</label>
     </div> `,
   styles: ``,
 })
-export class MyCheckboxComponent {
+export class MyCheckboxComponent implements ControlValueAccessor {
   checked = model(false);
   disabled = input(false);
   label = input('');
   name = input('');
 
-  toggle() {
-    // While standard inputs are read-only, you can write directly to model inputs.
+  onChange: (value: string) => void = () => {};
+  onTouched: () => void = () => {};
+
+  writeValue(): void {
     this.checked.set(!this.checked());
+  }
+
+  registerOnChange(fn: (value: string) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
   }
 }

@@ -1,6 +1,6 @@
-import { signal } from '@angular/core';
-import { getDefaultMyForm, MyForm } from '../models/form';
 import { getInitialStateProperty, StateProperty } from '@my/domain';
+
+import { getDefaultMyForm, MyForm } from '../models/form';
 
 export const formFeatureKey = 'form';
 
@@ -9,5 +9,5 @@ export interface FormState {
 }
 
 export const initialFormState = {
-  formA: getInitialStateProperty<MyForm>(getDefaultMyForm({ textbox: signal('hi!') })),
+  formA: getInitialStateProperty<MyForm>(getDefaultMyForm({ textbox: 'hi!' })),
 };

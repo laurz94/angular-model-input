@@ -6,7 +6,4 @@ import { formFeatureKey, FormState } from './form-state';
 
 export const selectFormState = (state: AppState) => state[formFeatureKey];
 
-export const selectFormA = createSelector(
-  selectFormState,
-  (state: FormState) => state.formA
-);
+export const selectFormA = createSelector(selectFormState, (state: FormState) => state.formA);
