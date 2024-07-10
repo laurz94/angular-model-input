@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@my/controls": ["controls/src/index.ts"],
+      "@my/controls": ["src/libs/controls/src/index.ts"],
       "@my/domain": ["src/libs/domain/src/index.ts"]
     }
   },

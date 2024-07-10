@@ -2,7 +2,7 @@
   "name": "controls",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "controls/src",
-  "prefix": "my-lib",
+  "prefix": "lib",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -12,6 +12,12 @@
       "options": {
         "project": "controls/ng-package.json"
       },
+      "dependsOn": [
+        {
+          "projects": ["controls"],
+          "target": "build"
+        }
+      ],
       "configurations": {
         "production": {
           "tsConfig": "controls/tsconfig.lib.prod.json"

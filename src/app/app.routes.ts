@@ -8,4 +8,9 @@ export const appRoutes: Route[] = [
     component: FormComponent,
     title: 'Angular Model Input Example',
   },
+  {
+    path: 'people',
+    loadChildren: () => import('./account-detail/santas-list.routes').then((c) => c.appRoutes),
+    title: `Santa's List`,
+  },
 ];

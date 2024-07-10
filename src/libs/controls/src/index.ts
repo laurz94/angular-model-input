@@ -1,2 +1,3 @@
-export * from './checkbox.component';
-export * from './textbox.component';
+export * from './lib/animations/index';
+export * from './lib/components/index';
+export * from './lib/pipes/index';
